@@ -1,0 +1,185 @@
+
+
+library(tidyverse); 
+library(igisci); 
+library(sf)
+
+```{r}
+data(package = "igisci") #whats inside "igisci"
+```
+
+ggplot(data=CA_counties) + geom_sf()  #data from "igisci" lib
+
+
+mean(igisci::sierraFeb$LATITUDE)
+```{r}
+mean(igisci::sierraFeb$ELEVATION) #mean of "ELEVATION from "sierraFeb"dataset
+```
+```{r}
+?sierraFeb  #to know whats inside sierraFeb
+```
+
+
+```{r}
+
+csvPath <- system.file("extdata","TRI/TRI_1987_BaySites.csv", package="igisci")
+TRI87 <- read_csv(csvPath)
+```
+```{r}
+install.packages("readr")
+library(readr)            #library used to read csv files
+                          #comes also with "tidyverse"
+```
+
+
+```{r}
+csvPath <- system.file("extdata","TRI/TRI_1987_BaySites.csv", package="igisci")
+TRI87 <- read_csv(csvPath)  # using the "extdata" from "igisci" a csv file
+                            #called "TRI_1987_BaySites.csv" from "TRI"                                  #folder is loaded. TRI87 contains the dataset
+```
+
+```{r}
+shpPath <- system.file("extdata","marbles/trails.shp", package="igisci")
+trails <- st_read(shpPath)
+```
+shpPath <- system.file("extdata","marbles/trails.shp", package="igisci")
+trails <- st_read(shpPath)
+
+
+View(exfiles())
+
+
+
+
+
+
+
+install.packages("palmerpenguins")
+library(palmerpenguins)
+
+
+penguins
+```{r}
+penguins
+```
+```{r}
+gt::gt(head(penguins))
+```
+gt::gt(head(penguins))
+
+
+```{r}
+temp <- c(35,31,28,25,21,20,18,9,5,0,-5)
+elev <- c(52,  394,  510,  564,  725,  848, 1042, 1225, 1486, 1775, 1899)
+lat <- c(39.52,38.91,37.97,38.70,39.09,39.25,39.94,37.75,40.35,39.33,39.17,38.21)
+exmp_data <- cbind(temp,elev,lat)
+my_data <- as.data.frame(exmp_data)
+knitr::kable(my_data, caption = "Temperature of the measures station")
+
+```
+
+
+
+```{r}
+plot(my_data$elev, my_data$temp) # selecting one variable and making it
+                                 # vector with "$"
+```
+
+
+```{r}
+library(readr)
+csvPath <- system.file("extdata" , "TRI/TRI_2017_CA.csv", package = "igisci")
+TRI2017 <- read.csv(csvPath)
+```
+
+
+
+```{r}
+csvPath <- system.file("extdata","TRI/TRI_1987_BaySites.csv", package="igisci")
+TRI87 <- read_csv(csvPath)
+TRI87
+
+```
+
+
+```{r}
+head(sort(TRI87$air_releases)) #THIS WILL SHOW FIRST FEW SORTED                                           # AIR RELEASE COLUMN
+```
+
+```{r}
+index <- order(TRI87$air_releases)
+
+head(TRI87$FACILITY_NAME[index])
+```
+
+```{r}
+i_max <- which.max(TRI87$air_releases)
+TRI87$FACILITY_NAME[i_max]
+```
+```{r}
+library(igisci)
+sierraFeb$COUNTY <- factor(sierraFeb$COUNTY)
+str(sierraFeb$COUNTY)
+
+```
+```{r}
+turnright <- function(angle)
+  {
+    (angle + 90)%%360
+}
+id <-c("dhfb","dghf","ksfgb","sfiwsfg")
+direction <- c(150,280,390,430)
+whale <- dplyr::bind_cols(id = id, direction = direction)
+whale
+
+```
+
+
+```{r}
+whale$direction <- turnright(whale$direction)
+whale
+```
+
+```{r}
+name <- "Gokul"
+city <- "Cottbus"
+state <- "Brandenburg"
+zip_code <- "03046"
+me <- paste(name,city,state,zip_code)
+me
+class(me)
+```
+```{r}
+letters
+LETTERS
+normal <- rnorm(26)
+uniform <- runif(26)
+library(tidyverse)
+tibble26 <- tibble(letters,LETTERS,normal,uniform)
+tibble26
+
+```
+
+```{r}
+peaks <- tribble(
+  ~peak, ~elev, ~longitude, ~latitude,
+  "Mt. Whitney", 4421, -118.2, 36.5,
+  "Mt. Elbert", 4401, -106.4, 39.1,
+  "Mt. Hood", 3428, -121.7, 45.4,
+  "Mt. Rainier", 4392, -121.8, 46.9)
+knitr::kable(peaks, caption = 'Peaks tibble')
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
