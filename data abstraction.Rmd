@@ -1,0 +1,116 @@
+---
+title: "Data Abstraction"
+author: "gokul"
+date: "2024-07-03"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(igisci)
+summary(eucoakrainfallrunoffTDR)
+
+```
+
+unique(eucoakrainfallrunoffTDR$site)
+
+```{r}
+head(eucoakrainfallrunoffTDR)
+```
+
+
+```{r}
+ggplot(data = eucoakrainfallrunoffTDR) +
+geom_boxplot(mapping = aes(x= site , y = runoffL_euc))
+
+```
+
+```{r}
+eucoakrainfallrunoffTDR
+```
+
+```{r}
+runoff <- eucoakrainfallrunoffTDR %>%
+  mutate(date = as.Date(date, "%m/%d/%y"),
+         rain_subcanopy = (rain_oak + rain_euc)/2) %>%
+  dplyr::select(site,  date, rain_mm,rain_subcanopy, )
+print(runoff)
+```
+```{r}
+library(palmerpenguins)
+library(tidyverse)
+library(lubridate)
+summary(penguins_raw)
+```
+```{r}
+penguins <- penguins_raw %>%
+  rename(bill_length_mm = `Culmen Length (mm)`,
+         bill_depth_mm = `Culmen Depth (mm)`) %>%
+  mutate(species = factor(word(Species)),
+         island = factor(Island),
+         flipper_length_mm = as.integer(`Flipper Length (mm)`),
+         body_mass_g = as.integer(`Body Mass (g)`),
+          sex = factor(str_to_lower(Sex)),
+         year = as.integer(year(ymd(`Date Egg`)))) %>%
+  dplyr::select(species, island, bill_length_mm, bill_depth_mm, 
+                flipper_length_mm, body_mass_g, sex, year)
+summary(penguins)
+```
+
+
+
+
+
+
+
+```{r}
+penguins <- penguins_raw %>%
+  rename(bill_length_mm = `Culmen Length (mm)`,
+         bill_depth_mm = `Culmen Depth (mm)`) %>%
+  mutate(species = factor(word(Species)),
+         island = factor(Island),
+         flipper_length_mm = as.integer(`Flipper Length (mm)`),
+         body_mass_g = as.integer(`Body Mass (g)`),
+         sex = factor(str_to_lower(Sex)),
+         year = as.integer(year(ymd(`Date Egg`)))) %>%
+  dplyr::select(species, island, bill_length_mm, bill_depth_mm, 
+                flipper_length_mm, body_mass_g, sex, year)
+summary(penguins)
+```
+
+
+```{r}
+print(penguins_raw)
+```
+
+```{r}
+runoff2007 <- runoff %>%
+  filter(Date >= as.Date("04/01/2007", "%m/%d/%Y"))
+```
+```{r}
+penguins %>%
+  filter(sex == "female") %>%                  #filter only females
+  select(species,body_mass_g) %>%        #shows only this two with females
+  print(penguins)
+```
+
+
+```
+```
+```
+```{r}
+penguins %>%
+  subset(sex =="female", select = c(species, body_mass_g)) %>%
+  subset(body_mass_g = max(body_mass_g))
+```
+
+
+
+
+
+
+
+```{r}
+
+```
+

@@ -1,0 +1,69 @@
+```{r}
+str_detect(fruit,"qu")
+str_which(fruit,"qu")
+selected <- fruit[c(43,46,67)]
+print(selected)
+```
+
+```{r}
+class(fruit)
+```
+```{r}
+
+fruit_a <- fruit[str_count(fruit,"a")>1]
+fruit_a
+
+```
+ 
+```{r}
+qfruit <- str_subset(fruit,"w")
+qfruit
+str_sub(qfruit, 1,2 )
+```
+```{r}
+name <- ("gokul")
+str_to_upper(name)
+str_replace(name,"G","O")
+name
+```
+```{r}
+str_replace(name,"g","o")
+```
+```{r}
+phrase <- str_c("hello","cruel","world", sep = " ")
+phrase
+str_split(phrase," ")
+word(phrase,2)
+
+
+```
+
+
+library(lubridate)
+dmy("20 September 2020")
+dmy_hm("20 September 2020 10:45")
+mdy_hms("September 20, 2020 10:48")
+mdy_hm("9/20/20 10:50")
+mdy("9.20.20")
+```{r}
+library(lubridate)
+dmy("20 September 2020")
+dmy_hm("20 September 2020 10:45")
+mdy_hms("September 20, 2020 10:48")
+mdy_hm("9/20/20 10:50")
+mdy("9.20.20")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
