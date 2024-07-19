@@ -1,0 +1,67 @@
+---
+title: "Data visualization"
+author: "gokul"
+date: "2024-07-11"
+output: html_document
+---
+```{r}
+summary(XSptsNDVI)
+```
+```{r}
+print(XSptsNDVI)
+```
+
+
+```{r}
+ggplot(XSptsNDVI, aes(vegetation)) + geom_bar()
+```
+
+```{r}
+Xsptspheno <- XSptsNDVI %>%
+  filter(vegetation != "pine") %>%
+  pivot_longer(cols = starts_with("NDVI"),
+               names_to = "phenology",
+               values_to = "NDVI") %>%
+
+  mutate(phenology = str_sub(phenology, 5 , str_length(phenology)))
+print(Xsptspheno)
+```
+```{r}
+Xsptspheno %>%
+  ggplot(aes(NDVI)) + geom_histogram(binwidth = 0.05)
+```
+```{r}
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

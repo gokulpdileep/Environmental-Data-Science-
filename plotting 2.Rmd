@@ -1,0 +1,43 @@
+---
+title: "plotting 2"
+author: "gokul"
+date: "2024-07-14"
+output: html_document
+---
+
+```{r}
+
+summary(XSptsNDVI)
+
+
+
+```
+```{r}
+sierraData %>%
+  ggplot(aes(TEMPERATURE)) + geom_histogram(fill = "black")
+
+
+```
+
+
+```{r}
+print(sierraData)
+```
+
+```{r}
+XSptsNDVI
+```
+
+print(XSptsNDVI)
+
+
+
+
+
+
+
+
+
+
+
+
